@@ -24,7 +24,7 @@ public class JSCSSResourceFile extends Resource {
 	 * @param sourcecontent
 	 * @throws IOException
 	 */
-	public JSCSSResourceFile(String path, String sourcecontent) throws IOException {
+	JSCSSResourceFile(String path, String sourcecontent) throws IOException {
 
 		super(path, sourcecontent);
 	}

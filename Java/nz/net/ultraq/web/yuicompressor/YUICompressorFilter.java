@@ -103,11 +103,11 @@ public class YUICompressorFilter extends ResourceProcessingFilter<JSCSSResourceF
 	 * @throws ServletException
 	 */
 	@Override
-	protected JSCSSResourceFile doProcessing(JSCSSResourceFile resource) throws IOException, ServletException {
+	protected void doProcessing(JSCSSResourceFile resource) throws IOException, ServletException {
 
 		// Do not process already-minified resources
 		if (resource.isAlreadyMinified()) {
-			return resource;
+			return;
 		}
 
 		// Select the appropriate compressor
@@ -128,8 +128,6 @@ public class YUICompressorFilter extends ResourceProcessingFilter<JSCSSResourceF
 				throw new ServletException(ex);
 			}
 		}
-
-		return resource;
 	}
 
 	/**
