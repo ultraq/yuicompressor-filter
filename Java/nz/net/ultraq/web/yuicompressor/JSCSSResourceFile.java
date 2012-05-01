@@ -27,6 +27,9 @@ public class JSCSSResourceFile extends Resource {
 	JSCSSResourceFile(String path, String sourcecontent) throws IOException {
 
 		super(path, sourcecontent);
+		if (isAlreadyMinified()) {
+			processedcontent = sourcecontent;
+		}
 	}
 
 	/**

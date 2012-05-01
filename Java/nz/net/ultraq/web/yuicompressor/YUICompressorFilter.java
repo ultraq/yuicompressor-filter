@@ -66,13 +66,6 @@ public class YUICompressorFilter extends ResourceProcessingFilter<JSCSSResourceF
 	}
 
 	/**
-	 * Does nothing.
-	 */
-	@Override
-	public void destroy() {
-	}
-
-	/**
 	 * Minify a JavaScript or CSS file using the YUI Compressor.
 	 * 
 	 * @param resource
