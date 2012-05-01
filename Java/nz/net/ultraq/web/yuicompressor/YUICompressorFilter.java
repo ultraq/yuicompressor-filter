@@ -44,40 +44,17 @@ import javax.servlet.annotation.WebFilter;
 )
 public class YUICompressorFilter extends ResourceProcessingFilter<JSCSSResourceFile> {
 
-	private static final String YUI_ERRORREPORTER_CLASS      = "org.mozilla.javascript.ErrorReporter";
-	private static final String YUI_EVALUATOREXCEPTION_CLASS = "org.mozilla.javascript.EvaluatorException";
-	private static final String YUI_JSCOMPRESSOR_CLASS       = "com.yahoo.platform.yui.compressor.JavaScriptCompressor";
+	private static final String YUI_COMPRESSOR_JAR = "/WEB-INF/lib/yuicompressor-2.4.7.jar";
 
 	private static final Logger logger = LoggerFactory.getLogger(YUICompressorFilter.class);
 
 	private ClassLoader yuiclassloader;
 
-	private Class<?> jscompressorclass;
 	private Constructor<?> jscompressorconstructor;
 	private Method jscompressormethod;
 
 	private Class<?> errorreporterclass;
 	private Object errorreporter;
-	private InvocationHandler errorreporterhandler = new InvocationHandler() {
-		@Override
-		public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-
-			switch (method.getName()) {
-			case "warning":
-				logger.warn("Issue encountered in {}:{} - {}", new Object[]{args[1], args[2], args[0]});
-				break;
-			case "error":
-				logger.error("Error encountered in {}:{} - {}", new Object[]{args[1], args[2], args[0]});
-				break;
-			case "runtimeError":
-				return evaluatorexceptionconstructor.newInstance(args);
-			}
-			return null;
-		}
-	};
-
-	private Class<?> evaluatorexceptionclass;
-	private Constructor<?> evaluatorexceptionconstructor;
 
 	/**
 	 * {@inheritDoc}
@@ -143,22 +120,41 @@ public class YUICompressorFilter extends ResourceProcessingFilter<JSCSSResourceF
 			// Create the YUI classloader
 			ServletContext context = filterConfig.getServletContext();
 			yuiclassloader = new URLClassLoader(new URL[]{
-					context.getResource("/WEB-INF/lib/yuicompressor-2.4.7.jar")},
+					context.getResource(YUI_COMPRESSOR_JAR)},
 					ClassLoader.getSystemClassLoader().getParent());
 
-			// Stuff needed for ErrorReporter, used by the JavaScript Compressor
-			errorreporterclass = Class.forName(YUI_ERRORREPORTER_CLASS, true, yuiclassloader);
-			errorreporter = Proxy.newProxyInstance(yuiclassloader, new Class[]{errorreporterclass}, errorreporterhandler);
+			// Stuff needed by the JavaScript Compressor - ErrorReporter, EvaluatorException
 
-			evaluatorexceptionclass = Class.forName(YUI_EVALUATOREXCEPTION_CLASS, true, yuiclassloader);
-			evaluatorexceptionconstructor = evaluatorexceptionclass.getConstructor(String.class, String.class,
-					Integer.TYPE, String.class, Integer.TYPE);
+			Class<?> evaluatorexceptionclass = Class.forName(
+					"org.mozilla.javascript.EvaluatorException", true, yuiclassloader);
+			final Constructor<?> evaluatorexceptionconstructor = evaluatorexceptionclass.getConstructor(
+					String.class, String.class, Integer.TYPE, String.class, Integer.TYPE);
+
+			errorreporterclass = Class.forName("org.mozilla.javascript.ErrorReporter", true, yuiclassloader);
+			errorreporter = Proxy.newProxyInstance(yuiclassloader, new Class[]{errorreporterclass}, new InvocationHandler() {
+				@Override
+				public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+					switch (method.getName()) {
+					case "warning":
+						logger.warn("Issue encountered in {}:{} - {}", new Object[]{args[1], args[2], args[0]});
+						break;
+					case "error":
+						logger.error("Error encountered in {}:{} - {}", new Object[]{args[1], args[2], args[0]});
+						break;
+					case "runtimeError":
+						return evaluatorexceptionconstructor.newInstance(args);
+					}
+					return null;
+				}
+			});
 
 			// Load YUI Compressor using the YUI classloader
-			jscompressorclass = Class.forName(YUI_JSCOMPRESSOR_CLASS, true, yuiclassloader);
+			Class<?> jscompressorclass = Class.forName(
+					"com.yahoo.platform.yui.compressor.JavaScriptCompressor", true, yuiclassloader);
 			jscompressorconstructor = jscompressorclass.getConstructor(Reader.class, errorreporterclass);
 			jscompressormethod = jscompressorclass.getMethod("compress", Writer.class, Integer.TYPE,
 					Boolean.TYPE, Boolean.TYPE, Boolean.TYPE, Boolean.TYPE);
+
 		}
 		catch (MalformedURLException | ClassNotFoundException | NoSuchMethodException ex) {
 			throw new ServletException(ex);
