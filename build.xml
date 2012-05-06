@@ -9,15 +9,13 @@
 	<property name="project.shortname" value="yuicompressor-filter"/>
 	<property name="project.version"   value="1.0"/>
 
-	<!-- Create YUI Compressor Filter JAR file -->
 	<target name="jar">
-		<echo message="Building YUICompressor Filter JAR file..."/>
 		<jar destfile="${project.shortname}-${project.version}.jar" basedir="Classes">
 			<manifest>
 				<attribute name="Implementation-Title" value="${project.name}"/>
 				<attribute name="Implementation-Version" value="${project.version}"/>
 				<attribute name="Implementation-Vendor" value="Emanuel Rabina"/>
-				<attribute name="Implementation-URL" value="http://www.ultraq.net.nz/programming/${project.shortname}/"/>
+				<attribute name="Implementation-URL" value="http://www.ultraq.net.nz/${project.shortname}/"/>
 			</manifest>
 		</jar>
 	</target>
