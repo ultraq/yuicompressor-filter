@@ -40,8 +40,11 @@ import javax.servlet.annotation.WebFilter;
  */
 @WebFilter(
 	filterName = "YUICompressorFilter",
-	urlPatterns = {"*.css", "*.js"}
-)
+	urlPatterns = {
+			"*.css",
+			"*.js",
+			"*.less"
+	})
 public class YUICompressorFilter extends ResourceProcessingFilter<JSCSSResourceFile> {
 
 	private static final String YUI_COMPRESSOR_JAR = "/WEB-INF/lib/yuicompressor-2.4.7.jar";

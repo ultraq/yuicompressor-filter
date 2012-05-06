@@ -12,9 +12,9 @@ import java.io.IOException;
  */
 public class JSCSSResourceFile extends Resource {
 
-	private static final String PATTERN_ALREADY_MINIFIED = ".*\\.min\\.(j|cs)s$";
-	private static final String PATTERN_FILETYPE_CSS = ".*\\.css$";
-	private static final String PATTERN_FILETYPE_JS  = ".*\\.js$";
+	private static final String PATTERN_ALREADY_MINIFIED     = ".*\\.min\\.(j|cs)s$";
+	private static final String PATTERN_FILETYPE_CSS_OR_LESS = ".*\\.(le|c)ss$";
+	private static final String PATTERN_FILETYPE_JS          = ".*\\.js$";
 
 	/**
 	 * Contstructor, build the resource file from the given path and captured
@@ -51,7 +51,7 @@ public class JSCSSResourceFile extends Resource {
 	 */
 	boolean isCSSFile() {
 
-		return getFilename().matches(PATTERN_FILETYPE_CSS);
+		return getFilename().matches(PATTERN_FILETYPE_CSS_OR_LESS);
 	}
 
 	/**
