@@ -16,9 +16,6 @@
 		 just insures that it is after CSS generation if used in conjunction
 		 with the LessCSS Filter -->
 	<ordering>
-		<after>
-			<others/>
-		</after>
 		<before>
 			<name>LessCSSFilter</name>
 		</before>
