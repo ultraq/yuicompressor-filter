@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<project name="YUI Compressor Filter" default="jar">
+<project name="YUI Compressor Filter" default="bundle">
 	<description>
-		Builds a JAR file of the YUI Compressor Filter project.
+		Bundles the YUI Compressor Filter project.
 	</description>
 
 	<property name="project.name"      value="YUI Compressor Filter"/>
 	<property name="project.shortname" value="yuicompressor-filter"/>
 	<property name="project.version"   value="1.0"/>
+	<property name="build.name"        value="${project.shortname}-${project.version}"/>
 
+	<!-- Create the JAR file -->
 	<target name="jar">
-		<jar destfile="${project.shortname}-${project.version}.jar" basedir="Classes">
+		<jar destfile="${build.name}.jar" basedir="Classes">
 			<manifest>
 				<attribute name="Implementation-Title" value="${project.name}"/>
 				<attribute name="Implementation-Version" value="${project.version}"/>
@@ -18,6 +20,27 @@
 				<attribute name="Implementation-URL" value="http://www.ultraq.net.nz/${project.shortname}/"/>
 			</manifest>
 		</jar>
+	</target>
+
+	<!-- Create the source archive -->
+	<target name="source">
+		<zip destfile="${build.name}-src.zip">
+			<fileset dir="Java" includes="**/*"/>
+			<fileset dir="Modules/Post-Processing Filter/Java" includes="**/*"/>
+		</zip>
+	</target>
+
+	<!-- Create the overall distribution archive -->
+	<target name="bundle" depends="jar, source">
+		<copy todir="${build.name}">
+			<fileset dir=".">
+				<include name="${build.name}.jar"/>
+				<include name="${build.name}-src.zip"/>
+				<include name="Libraries/**/*"/>
+			</fileset>
+		</copy>
+		<zip basedir="${build.name}" destfile="${project.name} ${project.version}.zip"/>
+		<delete dir="${build.name}"/>
 	</target>
 
 </project>
