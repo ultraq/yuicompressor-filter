@@ -31,9 +31,10 @@ Installation
 Usage
 -----
 
-1. That's it!  Unless...
-2. ...if you're _not_ taking advantage of servlet 3.0 annotations, then you'll need
-   to specify the filter in your `web.xml` file:
+That's it!  Unless...
+
+...if you're _not_ taking advantage of servlet 3.0 annotations, then you'll need
+to specify the filter in your `web.xml` file:
 
 	<filter>
 		<filter-name>YUICompressorFilter</filter-name>
@@ -50,9 +51,9 @@ Usage
 Limitations
 -----------
 
- - This filter only works on URLs which locate a file on the file system.  This
-   is a limitation of the way I've chosen to detect changes to the underlying
-   file, which I've done using Java 7's NIO 2 package.  I do have plans to fix
-   this though by providing fallbacks for other ways a stylesheet or JavaScript
-   file can be retrieved.
+This filter only works on URLs which locate a file on the file system.  This is
+a limitation of the way I've chosen to detect changes to the underlying file,
+which I've done using Java 7's NIO 2 package.  I do have plans to fix this
+though by providing fallbacks for other ways a stylesheet or JavaScript file can
+be retrieved.
 
