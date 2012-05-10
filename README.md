@@ -57,3 +57,15 @@ which I've done using Java 7's NIO 2 package.  I do have plans to fix this
 though by providing fallbacks for other ways a stylesheet or JavaScript file can
 be retrieved.
 
+
+Changelog
+---------
+
+### 1.0.1
+ - Added the ability to disable the filter from minifying resources with a
+   system property (an annoyance when doing any client-side debugging).  Just
+   add `-Dnz.net.ultraq.web.yuicompressor.DisableProcessing=true` to your VM
+   arguments.
+
+### 1.0
+ - Initial release

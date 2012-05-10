@@ -53,15 +53,15 @@ import javax.servlet.annotation.WebFilter;
 	})
 public class YUICompressorFilter extends ResourceProcessingFilter<JSCSSResourceFile> {
 
+	private static final Logger logger = LoggerFactory.getLogger(YUICompressorFilter.class);
 	private static final String YUI_COMPRESSOR_JAR = "/WEB-INF/lib/yuicompressor-2.4.7.jar";
 
-	private static final Logger logger = LoggerFactory.getLogger(YUICompressorFilter.class);
+	private static final String DISABLE_PROCESSING_FLAG = "nz.net.ultraq.web.yuicompressor.DisableProcessing";
+	private boolean disableProcessing;
 
 	private ClassLoader yuiclassloader;
-
 	private Constructor<?> jscompressorconstructor;
 	private Method jscompressormethod;
-
 	private Class<?> errorreporterclass;
 	private Object errorreporter;
 
@@ -84,8 +84,10 @@ public class YUICompressorFilter extends ResourceProcessingFilter<JSCSSResourceF
 	@Override
 	protected void doProcessing(JSCSSResourceFile resource) throws IOException, ServletException {
 
-		// Do not process already-minified resources
-		if (resource.isAlreadyMinified()) {
+		// Do not process already-minified resources, do not process when the
+		// DisableProcessing flag is set
+		if (resource.isAlreadyMinified() || disableProcessing) {
+			resource.setProcessedContent(resource.getSourceContent());
 			return;
 		}
 
@@ -117,6 +119,12 @@ public class YUICompressorFilter extends ResourceProcessingFilter<JSCSSResourceF
 	 */
 	@Override
 	public void init(FilterConfig filterConfig) throws ServletException {
+
+		// Check if processing is disabled
+		if (Boolean.getBoolean(DISABLE_PROCESSING_FLAG)) {
+			disableProcessing = true;
+			return;
+		}
 
 		try {
 			// Create the YUI classloader
