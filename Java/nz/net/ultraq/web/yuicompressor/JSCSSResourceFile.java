@@ -12,7 +12,7 @@ import java.io.IOException;
  */
 public class JSCSSResourceFile extends Resource {
 
-	private static final String PATTERN_ALREADY_MINIFIED     = ".*\\.min\\.(j|cs)s$";
+	private static final String PATTERN_ALREADY_MINIFIED     = ".*\\.min\\.(j|les|cs)s$";
 	private static final String PATTERN_FILETYPE_CSS_OR_LESS = ".*\\.(le|c)ss$";
 	private static final String PATTERN_FILETYPE_JS          = ".*\\.js$";
 

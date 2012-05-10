@@ -35,6 +35,12 @@ import javax.servlet.annotation.WebFilter;
  * version of Rhino so you can't easily put the official distributions of Rhino
  * into the classpath and expect things to work.  To get around this, this
  * filter launches the YUI Compressor in a separate classloader.
+ * <p>
+ * Since having the minification on during the development process can be
+ * annoying, this filter's processing can be disabled by setting a system
+ * property like so:
+ * <p>
+ * <code>-Dnz.net.ultraq.web.yuicompressor.DisableProcessing=true</code>
  * 
  * @author Emanuel Rabina
  */
