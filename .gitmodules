@@ -1,3 +1,3 @@
 [submodule "Modules/Post-Processing Filter"]
 	path = Modules/Post-Processing Filter
-	url = http://git.ultraq.net.nz/projects/web/postprocessingfilter/
+	url = git@github.com:ultraq/postprocessingfilter.git
