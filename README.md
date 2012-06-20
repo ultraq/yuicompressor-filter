@@ -16,8 +16,7 @@ Requirements
 ------------
 
  - Java 7
- - A Servlet 3.0 compliant servlet container if you're taking advantage of
-   servlet 3.0 annotations, otherwise a Servlet 2.5 compliant servlet container
+ - A Servlet 2.5 compliant servlet container
 
 
 Installation
@@ -31,14 +30,35 @@ Installation
 Usage
 -----
 
-That's it!  Unless...
-
-...if you're _not_ taking advantage of servlet 3.0 annotations, then you'll need
-to specify the filter in your `web.xml` file:
+Annoyingly, the YUI Compressor uses a heavily-modified version of Rhino so you
+can't easily put the official distributions of Rhino into the classpath and
+expect things to work.  To get around this, the filter launches the YUI
+Compressor in a separate classloader.  This filter also needs to be told of the
+location of the YUI Compressor JAR though since you might want to have this JAR
+outside of the normal classpath so it doesn't interfere with existing
+installations of Rhino.  If not specified, the filter will look in `/WEB-INF/lib/yuicompressor-2.4.7.jar`,
+but this can be overridden by providing the necessary init parameter in your `web.xml`
+file:
 
 	<filter>
 		<filter-name>YUICompressorFilter</filter-name>
 		<filter-class>nz.net.ultraq.web.yuicompressor.YUICompressorFilter</filter-class>
+		<init-param>
+			<param-name>YUI_COMPRESSOR_JAR</param-name>
+			<param-value>location-of/yuicompressor.jar</param-value>
+		</init-param>
+	</filter>
+
+If you're _not_ taking advantage of servlet 3.0 annotations, then you'll also
+need to specify the filter mappings in your `web.xml` file:
+
+	<filter>
+		<filter-name>YUICompressorFilter</filter-name>
+		<filter-class>nz.net.ultraq.web.yuicompressor.YUICompressorFilter</filter-class>
+		<init-param>
+			<param-name>YUI_COMPRESSOR_JAR</param-name>
+			<param-value>location-of/yuicompressor.jar</param-value>
+		</init-param>
 	</filter>
 	<filter-mapping>
 		<filter-name>YUICompressorFilter</filter-name>
@@ -60,6 +80,9 @@ be retrieved.
 
 Changelog
 ---------
+
+### 1.0.2
+ - Allowed for filter to co-exist with existing Rhino installations.
 
 ### 1.0.1
  - Added the ability to disable the filter from minifying resources with a
