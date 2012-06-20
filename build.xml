@@ -7,7 +7,7 @@
 
 	<property name="project.name"      value="YUI Compressor Filter"/>
 	<property name="project.shortname" value="yuicompressor-filter"/>
-	<property name="project.version"   value="1.0.1"/>
+	<property name="project.version"   value="1.0.2"/>
 	<property name="build.name"        value="${project.shortname}-${project.version}"/>
 
 	<!-- Create the JAR file -->
