@@ -33,11 +33,9 @@ repositories {
 }
 
 dependencies {
-	compile(
-		'nz.net.ultraq.web.filter:post-processing-filter:1.0.1',
-		'org.slf4j:slf4j-api:1.6.4'
-	)
+	compile 'nz.net.ultraq.web.filter:post-processing-filter:1.0.1'
 	compile('com.yahoo.platform.yui:yuicompressor:2.4.7') {
 		transitive = false
 	}
+	compile 'org.slf4j:slf4j-api:1.6.4'
 }
