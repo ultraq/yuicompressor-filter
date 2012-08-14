@@ -16,15 +16,24 @@ Requirements
 ------------
 
  - Java 7
- - A Servlet 2.5 compliant servlet container
+ - A Servlet 3.0 compliant servlet container if you're taking advantage of
+   servlet 3.0 annotations, otherwise a Servlet 2.5 compliant servlet container
 
 
 Installation
 ------------
 
+### Standalone distribution
 1. Download a copy of of the pre-compiled JAR from [the Downloads section](yuicompressor-filter/downloads)
    or build the project from the source code here on GitHub.
 2. Place the JAR in the `WEB-INF/lib` directory of your web application.
+
+### For Maven and Maven-compatible dependency managers
+Add a dependency to your project with the following co-ordinates:
+
+ - GroupId: `nz.net.ultraq.web.yuicompressor`
+ - ArtifactId: `yuicompressor-filter`
+ - Version: `1.0.3`
 
 
 Usage
@@ -80,6 +89,11 @@ be retrieved.
 
 Changelog
 ---------
+
+### 1.0.3
+ - Switched from Ant to Gradle as a build tool.
+ - Made project available from Maven Central.  Maven co-ordinates added to the
+   [Installation](#installation) section.
 
 ### 1.0.2
  - Allowed for filter to co-exist with existing Rhino installations.

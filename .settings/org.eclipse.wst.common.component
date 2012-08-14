@@ -2,6 +2,5 @@
 <project-modules id="moduleCoreId" project-version="1.5.0">
     <wb-module deploy-name="YUI Compressor Filter">
         <wb-resource deploy-path="/" source-path="/Java" tag="defaultRootSource"/>
-        <wb-resource deploy-path="/" source-path="/Modules/Post-Processing Filter/Java"/>
     </wb-module>
 </project-modules>
