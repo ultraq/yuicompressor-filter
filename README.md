@@ -33,7 +33,7 @@ Add a dependency to your project with the following co-ordinates:
 
  - GroupId: `nz.net.ultraq.web.yuicompressor`
  - ArtifactId: `yuicompressor-filter`
- - Version: `1.0.3`
+ - Version: `1.0.4`
 
 
 Usage
@@ -89,6 +89,12 @@ be retrieved.
 
 Changelog
 ---------
+
+### 1.0.4
+ - Update [post-processing-filter](https://github.com/ultraq/post-processing-filter)
+   dependency to 1.0.2
+ - Minor fixes from the updated [maven-support](https://github.com/ultraq/gradle-support)
+   Gradle script.
 
 ### 1.0.3
  - Switched from Ant to Gradle as a build tool.
