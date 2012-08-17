@@ -28,8 +28,8 @@ project.authorEmail   = 'emanuelrabina@gmail.com'
 project.authorWebsite = 'http://www.ultraq.net.nz/'
 
 repositories {
-	mavenLocal()
 	mavenCentral()
+	mavenLocal()
 }
 
 dependencies {
