@@ -29,7 +29,9 @@ project.authorWebsite = 'http://www.ultraq.net.nz/'
 
 repositories {
 	mavenCentral()
-	mavenLocal()
+	maven {
+		url 'https://oss.sonatype.org/content/groups/public/'
+	}
 }
 
 dependencies {
