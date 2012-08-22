@@ -15,6 +15,7 @@ apply from: 'https://raw.github.com/ultraq/gradle-support/master/bundle.gradle'
 
 //project.name        = 'YUI Compressor Filter'
 project.description = 'YUI Compressor Filter for Java web applications.'
+project.archivesBaseName = 'yuicompressor-filter'
 project.sourceCompatibility = '1.7'
 
 project.group    = 'nz.net.ultraq.web.yuicompressor'
