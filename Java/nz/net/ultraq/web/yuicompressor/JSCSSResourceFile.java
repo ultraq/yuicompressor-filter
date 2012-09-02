@@ -3,8 +3,6 @@ package nz.net.ultraq.web.yuicompressor;
 
 import nz.net.ultraq.web.filter.Resource;
 
-import java.io.IOException;
-
 /**
  * Resource file implementation specific to the YUI Compressor Filter.
  * 
@@ -22,9 +20,8 @@ public class JSCSSResourceFile extends Resource {
 	 * 
 	 * @param path
 	 * @param sourcecontent
-	 * @throws IOException
 	 */
-	JSCSSResourceFile(String path, String sourcecontent) throws IOException {
+	JSCSSResourceFile(String path, String sourcecontent) {
 
 		super(path, sourcecontent);
 	}
