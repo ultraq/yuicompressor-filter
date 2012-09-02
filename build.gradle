@@ -21,7 +21,7 @@ project.sourceCompatibility = '1.7'
 project.group    = 'nz.net.ultraq.web.yuicompressor'
 project.artifact = 'yuicompressor-filter'
 project.version  = '1.0.4-SNAPSHOT'
-project.website  = "http://www.ultraq.net.nz/projects/${project.artifact}/"
+project.website  = "http://www.ultraq.net.nz/programming/${project.artifact}/"
 project.year     = '2012'
 
 project.author        = 'Emanuel Rabina'
