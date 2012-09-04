@@ -20,7 +20,7 @@ project.sourceCompatibility = '1.7'
 
 project.group    = 'nz.net.ultraq.web.yuicompressor'
 project.artifact = 'yuicompressor-filter'
-project.version  = '1.0.4-SNAPSHOT'
+project.version  = '1.0.4'
 project.website  = "http://www.ultraq.net.nz/programming/${project.artifact}/"
 project.year     = '2012'
 
@@ -37,7 +37,7 @@ repositories {
 
 dependencies {
 	provided 'javax.servlet:javax.servlet-api:3.0.1'
-	compile 'nz.net.ultraq.web.filter:post-processing-filter:1.0.2-SNAPSHOT'
+	compile 'nz.net.ultraq.web.filter:post-processing-filter:1.0.2'
 	compile('com.yahoo.platform.yui:yuicompressor:2.4.7') {
 		transitive = false
 	}
