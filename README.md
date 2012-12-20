@@ -11,6 +11,9 @@ is cached to save on having to process it again.  Any changes to these files
 will be picked up and cause the file to be processed the next time it is
 requested.
 
+ - Current version: 1.0.4
+ - Release date: 5 September 2012
+
 
 Requirements
 ------------
