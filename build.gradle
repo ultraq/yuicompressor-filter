@@ -38,13 +38,6 @@ project.artifact = 'yuicompressor-filter'
 project.version  = '1.0.4'
 project.year     = '2012'
 
-repositories {
-	mavenCentral()
-	maven {
-		url 'https://oss.sonatype.org/content/groups/public/'
-	}
-}
-
 dependencies {
 	provided 'javax.servlet:javax.servlet-api:3.0.1'
 	compile 'nz.net.ultraq.web.filter:post-processing-filter:1.0.2'
