@@ -11,8 +11,8 @@ is cached to save on having to process it again.  Any changes to these files
 will be picked up and cause the file to be processed the next time it is
 requested.
 
- - Current version: 1.0.4
- - Release date: 5 September 2012
+ - Current version: 1.0.5-SNAPSHOT
+ - Release date: ?? ??? 2013
 
 
 Requirements
@@ -36,7 +36,7 @@ Add a dependency to your project with the following co-ordinates:
 
  - GroupId: `nz.net.ultraq.web.yuicompressor`
  - ArtifactId: `yuicompressor-filter`
- - Version: `1.0.4`
+ - Version: `1.0.5-SNAPSHOT`
 
 
 Usage
@@ -92,6 +92,10 @@ be retrieved.
 
 Changelog
 ---------
+
+### 1.0.5
+ - Project structure reorganization after major fixes to the Gradle build
+   scripts.
 
 ### 1.0.4
  - Update [post-processing-filter](https://github.com/ultraq/post-processing-filter)
