@@ -52,8 +52,9 @@ import javax.servlet.annotation.WebInitParam;
  * also needs to be told of the location of the YUI Compressor JAR though since
  * you might want to have this JAR outside of the normal classpath so it doesn't
  * interfere with other JARs that use Rhino.  If not specified, it will look in
- * <tt>/WEB-INF/lib/yuicompressor-2.4.7.jar</tt>, but this can be overridden by
- * providing the necessary init parameter in your <tt>web.xml</tt> file:
+ * <tt>/WEB-INF/lib-sandbox/yuicompressor-2.4.7.jar</tt>, but this can be
+ * overridden by providing the necessary init parameter in your <tt>web.xml</tt>
+ * file:
  * <pre>
  * &lt;filter&gt;
  *   &lt;filter-name&gt;YUICompressorFilter&lt;/filter-name&gt;
@@ -73,22 +74,17 @@ import javax.servlet.annotation.WebInitParam;
  */
 @WebFilter(
 	filterName = "YUICompressorFilter",
-	urlPatterns = {
-			"*.css",
-			"*.js",
-			"*.less"
-	},
-	initParams = {
-			@WebInitParam(name = "YUI_COMPRESSOR_JAR", value = "/WEB-INF/lib/yuicompressor-2.4.7.jar")
-	})
+	urlPatterns = {"*.css", "*.js", "*.less"},
+	initParams = @WebInitParam(name = "YUI_COMPRESSOR_JAR", value = "/WEB-INF/lib-sandbox/yuicompressor-2.4.7.jar")
+)
 public class YUICompressorFilter extends ResourceProcessingFilter<JSCSSResourceFile> {
+
+	public static final String DISABLE_PROCESSING_FLAG = "nz.net.ultraq.web.yuicompressor.DisableProcessing";
+	public static final String YUI_COMPRESSOR_JAR = "YUI_COMPRESSOR_JAR";
 
 	private static final Logger logger = LoggerFactory.getLogger(YUICompressorFilter.class);
 
-	private static final String DISABLE_PROCESSING_FLAG = "nz.net.ultraq.web.yuicompressor.DisableProcessing";
 	private boolean disableProcessing;
-
-	private static final String YUI_COMPRESSOR_JAR = "YUI_COMPRESSOR_JAR";
 	private String yuicompressorjar;
 
 	private ClassLoader yuiclassloader;

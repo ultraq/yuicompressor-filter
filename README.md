@@ -48,7 +48,7 @@ expect things to work.  To get around this, the filter launches the YUI
 Compressor in a separate classloader.  This filter also needs to be told of the
 location of the YUI Compressor JAR though since you might want to have this JAR
 outside of the normal classpath so it doesn't interfere with existing
-installations of Rhino.  If not specified, the filter will look in `/WEB-INF/lib/yuicompressor-2.4.7.jar`,
+installations of Rhino.  If not specified, the filter will look in `/WEB-INF/lib-sandbox/yuicompressor-2.4.7.jar`,
 but this can be overridden by providing the necessary init parameter in your `web.xml`
 file:
 
@@ -96,6 +96,8 @@ Changelog
 ### 1.0.5
  - Project structure reorganization after major fixes to the Gradle build
    scripts.
+ - Changed default location of the YUI Compressor JAR to `/WEB-INF/lib-sandbox/yuicompressor-2.4.7.jar`
+   since it should reside outside of the normal classpath anyway.
 
 ### 1.0.4
  - Update [post-processing-filter](https://github.com/ultraq/post-processing-filter)
