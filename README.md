@@ -36,7 +36,7 @@ Add a dependency to your project with the following co-ordinates:
 
  - GroupId: `nz.net.ultraq.web.yuicompressor`
  - ArtifactId: `yuicompressor-filter`
- - Version: `1.0.5
+ - Version: `1.0.5`
 
 
 Usage
