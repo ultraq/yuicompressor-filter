@@ -11,8 +11,8 @@ is cached to save on having to process it again.  Any changes to these files
 will be picked up and cause the file to be processed the next time it is
 requested.
 
- - Current version: 1.0.5-SNAPSHOT
- - Release date: ?? ??? 2013
+ - Current version: 1.0.5
+ - Release date: 29 March 2013
 
 
 Requirements
@@ -27,7 +27,7 @@ Installation
 ------------
 
 ### Standalone distribution
-1. Copy the JAR from [the latest download bundle](http://www.ultraq.net.nz/downloads/programming/YUI Compressor Filter 1.0.4.zip),
+1. Copy the JAR from [the latest download bundle](http://www.ultraq.net.nz/downloads/programming/YUI Compressor Filter 1.0.5.zip),
    or build the project from the source code here on GitHub.
 2. Place the JAR in the `WEB-INF/lib` directory of your web application.
 
@@ -36,7 +36,7 @@ Add a dependency to your project with the following co-ordinates:
 
  - GroupId: `nz.net.ultraq.web.yuicompressor`
  - ArtifactId: `yuicompressor-filter`
- - Version: `1.0.5-SNAPSHOT`
+ - Version: `1.0.5
 
 
 Usage

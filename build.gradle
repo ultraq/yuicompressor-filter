@@ -35,7 +35,7 @@ project.sourceCompatibility = '1.7'
 
 project.group    = 'nz.net.ultraq.web.yuicompressor'
 project.artifact = 'yuicompressor-filter'
-project.version  = '1.0.5-SNAPSHOT'
+project.version  = '1.0.5'
 project.year     = '2012'
 
 dependencies {
