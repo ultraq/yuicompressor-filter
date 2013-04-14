@@ -52,32 +52,36 @@ installations of Rhino.  If not specified, the filter will look in `/WEB-INF/lib
 but this can be overridden by providing the necessary init parameter in your `web.xml`
 file:
 
-	<filter>
-		<filter-name>YUICompressorFilter</filter-name>
-		<filter-class>nz.net.ultraq.web.yuicompressor.YUICompressorFilter</filter-class>
-		<init-param>
-			<param-name>YUI_COMPRESSOR_JAR</param-name>
-			<param-value>location-of/yuicompressor.jar</param-value>
-		</init-param>
-	</filter>
+```xml
+<filter>
+	<filter-name>YUICompressorFilter</filter-name>
+	<filter-class>nz.net.ultraq.web.yuicompressor.YUICompressorFilter</filter-class>
+	<init-param>
+		<param-name>YUI_COMPRESSOR_JAR</param-name>
+		<param-value>location-of/yuicompressor.jar</param-value>
+	</init-param>
+</filter>
+```
 
 If you're _not_ taking advantage of servlet 3.0 annotations, then you'll also
 need to specify the filter mappings in your `web.xml` file:
 
-	<filter>
-		<filter-name>YUICompressorFilter</filter-name>
-		<filter-class>nz.net.ultraq.web.yuicompressor.YUICompressorFilter</filter-class>
-		<init-param>
-			<param-name>YUI_COMPRESSOR_JAR</param-name>
-			<param-value>location-of/yuicompressor.jar</param-value>
-		</init-param>
-	</filter>
-	<filter-mapping>
-		<filter-name>YUICompressorFilter</filter-name>
-		<url-pattern>*.less</url-pattern>
-		<url-pattern>*.css</url-pattern>
-		<url-pattern>*.js</url-pattern>
-	</filter-mapping>
+```xml
+<filter>
+	<filter-name>YUICompressorFilter</filter-name>
+	<filter-class>nz.net.ultraq.web.yuicompressor.YUICompressorFilter</filter-class>
+	<init-param>
+		<param-name>YUI_COMPRESSOR_JAR</param-name>
+		<param-value>location-of/yuicompressor.jar</param-value>
+	</init-param>
+</filter>
+<filter-mapping>
+	<filter-name>YUICompressorFilter</filter-name>
+	<url-pattern>*.less</url-pattern>
+	<url-pattern>*.css</url-pattern>
+	<url-pattern>*.js</url-pattern>
+</filter-mapping>
+```
 
 
 Limitations
