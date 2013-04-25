@@ -24,8 +24,8 @@
 	<display-name>YUICompressor Filter</display-name>
 	<name>YUICompressorFilter</name>
 
-	<!-- Fragment order, compression can run at any time, but this declaration
-		 just insures that it is after CSS generation if used in conjunction
+	<!-- Fragment order.  Compression can run at any time, but this declaration
+		 just ensures that it is after CSS generation if used in conjunction
 		 with the LessCSS Filter -->
 	<ordering>
 		<before>

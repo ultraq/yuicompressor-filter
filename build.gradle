@@ -27,15 +27,17 @@ apply from: 'https://raw.github.com/ultraq/gradle-support/master/java-support.gr
 apply plugin: 'maven'
 apply from: 'https://raw.github.com/ultraq/gradle-support/master/maven-support.gradle'
 apply from: 'https://raw.github.com/ultraq/gradle-support/master/bundle.gradle'
+apply plugin: 'eclipse'
+apply from: 'https://raw.github.com/ultraq/gradle-support/master/eclipse-support.gradle'
 
 //project.name      = 'YUI Compressor Filter'
 project.description = 'YUI Compressor Filter for Java web applications.'
 project.archivesBaseName = 'yuicompressor-filter'
 project.sourceCompatibility = '1.7'
 
-project.group    = 'nz.net.ultraq.web.yuicompressor'
+project.group    = 'nz.net.ultraq.yuicompressor'
 project.artifact = 'yuicompressor-filter'
-project.version  = '1.0.5'
+project.version  = '1.1-SNAPSHOT'
 project.year     = '2012'
 
 dependencies {

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package nz.net.ultraq.web.yuicompressor;
+package nz.net.ultraq.yuicompressor;
 
 import nz.net.ultraq.web.filter.ResourceProcessingFilter;
 
