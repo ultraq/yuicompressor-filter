@@ -16,7 +16,7 @@
 
 package nz.net.ultraq.yuicompressor;
 
-import nz.net.ultraq.web.filter.Resource;
+import nz.net.ultraq.postprocessing.Resource;
 
 /**
  * Resource file implementation specific to the YUI Compressor Filter.

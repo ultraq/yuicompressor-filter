@@ -42,7 +42,7 @@ project.year     = '2012'
 
 dependencies {
 	compile('javax.servlet:javax.servlet-api:3.0.1', provided)
-	compile('nz.net.ultraq.web.filter:post-processing-filter:1.0.3')
+	compile('nz.net.ultraq.postprocessing:post-processing-filter:1.1')
 	compile('com.yahoo.platform.yui:yuicompressor:2.4.7') {
 		transitive = false
 	}
