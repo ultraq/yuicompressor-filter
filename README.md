@@ -19,8 +19,7 @@ Requirements
 ------------
 
  - Java 7
- - A Servlet 3.0 compliant servlet container if you're taking advantage of
-   servlet 3.0 annotations, otherwise a Servlet 2.5 compliant servlet container
+ - A Servlet 3.0 compliant servlet container
 
 
 Installation
@@ -89,9 +88,7 @@ Limitations
 
 This filter only works on URLs which locate a file on the file system.  This is
 a limitation of the way I've chosen to detect changes to the underlying file,
-which I've done using Java 7's NIO 2 package.  I do have plans to fix this
-though by providing fallbacks for other ways a stylesheet or JavaScript file can
-be retrieved.
+which I've done using Java 7's NIO 2 package.
 
 
 Changelog
