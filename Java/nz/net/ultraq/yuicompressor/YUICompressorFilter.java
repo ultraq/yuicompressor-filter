@@ -68,7 +68,7 @@ import javax.servlet.annotation.WebInitParam;
  * annoying, this filter's processing can be disabled by setting a system
  * property like so:
  * <p>
- * <code>-Dnz.net.ultraq.web.yuicompressor.DisableProcessing=true</code>
+ * <code>-Dnz.net.ultraq.yuicompressor.DisableProcessing=true</code>
  * 
  * @author Emanuel Rabina
  */
@@ -79,7 +79,7 @@ import javax.servlet.annotation.WebInitParam;
 )
 public class YUICompressorFilter extends ResourceProcessingFilter<JSCSSResourceFile> {
 
-	public static final String DISABLE_PROCESSING_FLAG = "nz.net.ultraq.web.yuicompressor.DisableProcessing";
+	public static final String DISABLE_PROCESSING_FLAG = "nz.net.ultraq.yuicompressor.DisableProcessing";
 	public static final String YUI_COMPRESSOR_JAR = "YUI_COMPRESSOR_JAR";
 
 	private static final Logger logger = LoggerFactory.getLogger(YUICompressorFilter.class);

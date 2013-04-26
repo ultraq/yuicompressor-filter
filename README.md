@@ -54,7 +54,7 @@ file:
 ```xml
 <filter>
 	<filter-name>YUICompressorFilter</filter-name>
-	<filter-class>nz.net.ultraq.web.yuicompressor.YUICompressorFilter</filter-class>
+	<filter-class>nz.net.ultraq.yuicompressor.YUICompressorFilter</filter-class>
 	<init-param>
 		<param-name>YUI_COMPRESSOR_JAR</param-name>
 		<param-value>location-of/yuicompressor.jar</param-value>
@@ -68,7 +68,7 @@ need to specify the filter mappings in your `web.xml` file:
 ```xml
 <filter>
 	<filter-name>YUICompressorFilter</filter-name>
-	<filter-class>nz.net.ultraq.web.yuicompressor.YUICompressorFilter</filter-class>
+	<filter-class>nz.net.ultraq.yuicompressor.YUICompressorFilter</filter-class>
 	<init-param>
 		<param-name>YUI_COMPRESSOR_JAR</param-name>
 		<param-value>location-of/yuicompressor.jar</param-value>
@@ -97,6 +97,8 @@ Changelog
 ### 1.1
  - Change package and Maven group to `nz.net.ultraq.yuicompressor` (dropped the
    'web' part).
+ - Disabling the filter is now done with the `-Dnz.net.ultraq.yuicompressor.DisableProcessing=true`
+   VM argument / system property.
 
 ### 1.0.5
  - Project structure reorganization after major fixes to the Gradle build
