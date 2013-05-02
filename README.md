@@ -12,7 +12,7 @@ will be picked up and cause the file to be processed the next time it is
 requested.
 
  - Current version: 1.1
- - Release date: ?? April 2013
+ - Release date: 2 May 2013
 
 
 Requirements
