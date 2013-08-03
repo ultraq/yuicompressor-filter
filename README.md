@@ -11,8 +11,8 @@ is cached to save on having to process it again.  Any changes to these files
 will be picked up and cause the file to be processed the next time it is
 requested.
 
- - Current version: 1.1
- - Release date: 2 May 2013
+ - Current version: 1.1.1
+ - Release date: 3 August 2013
 
 
 Requirements
@@ -26,7 +26,7 @@ Installation
 ------------
 
 ### Standalone distribution
-1. Copy the JAR from [the latest download bundle](http://www.ultraq.net.nz/downloads/programming/YUI Compressor Filter 1.1.zip),
+1. Copy the JAR from [the latest download bundle](http://www.ultraq.net.nz/downloads/programming/YUI Compressor Filter 1.1.1.zip),
    or build the project from the source code here on GitHub.
 2. Place the JAR in the `WEB-INF/lib` directory of your web application.
 
@@ -93,6 +93,10 @@ which I've done using Java 7's NIO 2 package.
 
 Changelog
 ---------
+
+### 1.1.1
+ - Update [post-processing-filter](https://github.com/ultraq/post-processing-filter)
+   dependency to 1.1.1
 
 ### 1.1
  - Change package and Maven group to `nz.net.ultraq.yuicompressor` (dropped the

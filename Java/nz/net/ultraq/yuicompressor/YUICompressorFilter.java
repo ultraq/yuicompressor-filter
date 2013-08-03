@@ -21,7 +21,6 @@ import nz.net.ultraq.postprocessing.ResourceProcessingFilter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.IOException;
 import java.io.Reader;
 import java.io.StringReader;
 import java.io.StringWriter;
@@ -101,7 +100,7 @@ public class YUICompressorFilter extends ResourceProcessingFilter<JSCSSResourceF
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected JSCSSResourceFile buildResource(String path, String resourcecontent) throws IOException {
+	protected JSCSSResourceFile buildResource(String path, String resourcecontent) {
 
 		return new JSCSSResourceFile(path, resourcecontent);
 	}
