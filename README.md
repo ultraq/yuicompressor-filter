@@ -26,9 +26,9 @@ Installation
 ------------
 
 ### Standalone distribution
-1. Copy the JAR from [the latest download bundle](http://www.ultraq.net.nz/downloads/programming/YUI Compressor Filter 1.1.1.zip),
-   or build the project from the source code here on GitHub.
-2. Place the JAR in the `WEB-INF/lib` directory of your web application.
+Copy the JAR from [the latest release bundle](https://github.com/ultraq/yuicompressor-filter/releases),
+placing it in the `WEB-INF/lib` directory of your web application, or build the
+project from the source code here on GitHub.
 
 ### For Maven and Maven-compatible dependency managers
 Add a dependency to your project with the following co-ordinates:
